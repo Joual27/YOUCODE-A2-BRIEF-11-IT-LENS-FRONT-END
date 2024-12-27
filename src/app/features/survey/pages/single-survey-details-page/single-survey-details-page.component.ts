@@ -9,10 +9,21 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class SingleSurveyDetailsPageComponent {
    surveyId : string ;
-   editionYear : string ;
+   editionId : string ;
+   editionData : 
 
    constructor (private route : ActivatedRoute){
     this.surveyId = this.route.snapshot.paramMap.get('id') ?? '';
-    this.editionYear = this.route.snapshot.paramMap.get('editionYear') ?? '';
+    this.editionId = this.route.snapshot.paramMap.get('editionId') ?? '';
    }
+   
+   ngOnInit() : void{
+    
+   }
+
+   getEditionData() : void{
+
+   }
+
+
 }
