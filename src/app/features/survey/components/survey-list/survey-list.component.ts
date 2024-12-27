@@ -1,8 +1,8 @@
 import { Component, inject, Inject, signal } from '@angular/core';
 import { Survey } from '../../models';
 import { SurveyItemComponent } from '../survey-item/survey-item.component';
-import { DataService } from '../../../../shared/services/data.service';
-import { provideHttpClient } from '@angular/common/http';
+import { DataService } from '../../../../core/services/data.service';
+import { ApiResponse } from '../../../../shared/models/shared.models';
 
 
 @Component({
@@ -22,9 +22,8 @@ export class SurveyListComponent {
 
   loadSurveys() : void {
     this.dataService.getSurveys()
-      .subscribe((data : Survey[]) => {
-        console.log(data.data.surveys);
-        this.surveys.set(data)
+      .subscribe((data : ApiResponse) => {
+        this.surveys.set(data.data.surveys)
       });
   }
 }

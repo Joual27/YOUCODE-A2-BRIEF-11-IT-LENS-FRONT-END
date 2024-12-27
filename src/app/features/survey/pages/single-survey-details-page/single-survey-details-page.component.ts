@@ -9,9 +9,10 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class SingleSurveyDetailsPageComponent {
    surveyId : string ;
+   editionYear : string ;
 
    constructor (private route : ActivatedRoute){
     this.surveyId = this.route.snapshot.paramMap.get('id') ?? '';
-    console.log('Survey ID:', this.surveyId);
+    this.editionYear = this.route.snapshot.paramMap.get('editionYear') ?? '';
    }
 }
