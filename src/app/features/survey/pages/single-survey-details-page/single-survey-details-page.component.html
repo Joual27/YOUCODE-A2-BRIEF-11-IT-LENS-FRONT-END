@@ -1,2 +1,7 @@
-<p>Details of survey with id : {{surveyId}}</p>
-<p>Details of survey with edition year : {{editionId}}</p>
+@if (isValidEditionId()) {
+    <p>{{editionData()?.id}}</p>
+    <p>{{editionData()?.creationDate}}</p>
+    <p>{{editionData()?.chapters}}</p>
+}@else {
+    no such edition with given ID ! 
+}

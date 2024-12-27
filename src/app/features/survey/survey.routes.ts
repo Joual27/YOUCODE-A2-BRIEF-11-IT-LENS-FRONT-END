@@ -9,7 +9,7 @@ export const SURVEY_ROUTES : Routes = [
                 .then(m => m.AllSurveysPageComponent)
     },
     {
-        path : ":id/:editionId",
+        path : ":editionId",
         loadComponent : () => 
             import("./pages/single-survey-details-page/single-survey-details-page.component")
                 .then(m => m.SingleSurveyDetailsPageComponent)

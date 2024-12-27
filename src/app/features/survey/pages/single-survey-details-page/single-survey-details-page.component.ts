@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject, signal, Signal, WritableSignal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Edition } from '../../models';
+import { Observable } from 'rxjs';
+import { DataService } from '../../../../core/services/data.service';
 
 @Component({
   selector: 'app-single-survey-details-page',
@@ -8,22 +11,33 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './single-survey-details-page.component.css'
 })
 export class SingleSurveyDetailsPageComponent {
-   surveyId : string ;
-   editionId : string ;
-   editionData : 
+   private editionId : number ;
+   editionData !: WritableSignal<Edition | undefined>;
+   private dataService = inject(DataService);
+   isValidEditionId = signal<boolean>(true);
 
    constructor (private route : ActivatedRoute){
-    this.surveyId = this.route.snapshot.paramMap.get('id') ?? '';
-    this.editionId = this.route.snapshot.paramMap.get('editionId') ?? '';
+    this.editionId = Number(this.route.snapshot.paramMap.get('editionId')) ?? '';
    }
    
    ngOnInit() : void{
-    
+     this.getEditionData();
    }
 
    getEditionData() : void{
-
-   }
+    if(this.editionId){
+      this.dataService.getEditionData(this.editionId).subscribe({
+        next : (data) => this.editionData.set(data),
+        error : (err) => {
+          console.log(err) ;
+          this.editionData.set(undefined);
+        }
+      })
+    }
+    else{
+      this.isValidEditionId.set(false);
+    }
+   }  
 
 
 }
