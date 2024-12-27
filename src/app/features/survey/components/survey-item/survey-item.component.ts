@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Survey } from '../../models';
 
 @Component({
   selector: 'app-survey-item',
@@ -7,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './survey-item.component.css'
 })
 export class SurveyItemComponent {
-
+  @Input() survey !: Survey;
 }

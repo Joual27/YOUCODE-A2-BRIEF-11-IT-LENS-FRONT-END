@@ -1,7 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { SurveyListComponent } from './features/survey/components/survey-list/survey-list.component';
-import { AllSurveysPageComponent } from "./features/survey/pages/all-surveys-page/all-surveys-page.component";
 
 
 @Component({
@@ -11,6 +9,5 @@ import { AllSurveysPageComponent } from "./features/survey/pages/all-surveys-pag
   imports: [RouterOutlet]
 })
 export class AppComponent {
-  title = 'ITLens-front-end';
-  
+  title = signal('ITLens-front-end');
 }
