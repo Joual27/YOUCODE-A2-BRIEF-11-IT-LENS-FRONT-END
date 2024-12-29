@@ -1,18 +1,18 @@
 import { Component, inject, signal, Signal, WritableSignal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Edition } from '../../models';
-import { Observable } from 'rxjs';
+import { Edition } from '../../../../shared/models';
 import { DataService } from '../../../../core/services/data.service';
+import { EditionDataLayoutComponent } from '../../../edition/components/edition-data-layout/edition-data-layout.component';
 
 @Component({
   selector: 'app-single-survey-details-page',
-  imports: [],
   templateUrl: './single-survey-details-page.component.html',
-  styleUrl: './single-survey-details-page.component.css'
+  styleUrl: './single-survey-details-page.component.css',
+  imports : [EditionDataLayoutComponent]
 })
 export class SingleSurveyDetailsPageComponent {
-   private editionId : number ;
-   editionData !: WritableSignal<Edition | undefined>;
+   editionId : number ;
+   editionData : WritableSignal<Edition | undefined> = signal(undefined);
    private dataService = inject(DataService);
    isValidEditionId = signal<boolean>(true);
 
@@ -27,17 +27,17 @@ export class SingleSurveyDetailsPageComponent {
    getEditionData() : void{
     if(this.editionId){
       this.dataService.getEditionData(this.editionId).subscribe({
-        next : (data) => this.editionData.set(data),
+        next : (data) => {
+          this.editionData.set(data)
+          if(!data){
+            this.isValidEditionId.set(false);
+          }
+        },
         error : (err) => {
           console.log(err) ;
           this.editionData.set(undefined);
         }
       })
     }
-    else{
-      this.isValidEditionId.set(false);
-    }
-   }  
-
-
+   }
 }

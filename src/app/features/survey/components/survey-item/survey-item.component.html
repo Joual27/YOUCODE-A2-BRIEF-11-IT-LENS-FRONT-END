@@ -15,7 +15,7 @@
         </div>
         <div class="flex gap-[10px] font-medium text-[.95rem]">
             @for (edition of survey.editions; track edition.creationDate) {
-                <a [routerLink]="[survey.id, edition.id]">
+                <a [routerLink]="[edition.id]">
                     <div class="bg-[#5C5C99] rounded-xl text-white font-medium text-[.85rem] flex items-center justify-center px-[.75rem] py-[.35rem] cursor-pointer hover:bg-opacity-80">
                         <p>{{edition.startDate.substring(0, 4)}}</p>
                     </div>

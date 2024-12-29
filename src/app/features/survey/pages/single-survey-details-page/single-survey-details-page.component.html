@@ -1,7 +1,5 @@
 @if (isValidEditionId()) {
-    <p>{{editionData()?.id}}</p>
-    <p>{{editionData()?.creationDate}}</p>
-    <p>{{editionData()?.chapters}}</p>
+    <app-edition-data-layout [editionData]="editionData"></app-edition-data-layout>
 }@else {
-    no such edition with given ID ! 
+    <p>no such edition with ID : {{editionId}} ! </p>
 }

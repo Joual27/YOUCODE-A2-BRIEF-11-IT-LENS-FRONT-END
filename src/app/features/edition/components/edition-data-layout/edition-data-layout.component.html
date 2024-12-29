@@ -1,0 +1,7 @@
+<div class="w-[70%] mx-auto pb-[4rem] pt-[100px] relative">
+    <app-edition-data-header [editionData]="editionData"></app-edition-data-header>
+    <div class="w-full flex flex-col gap-[4rem] px-[2rem] max-w-[40%] bg-[#CCCCFF] min-h-[60vh] mt-[4rem] rounded-md relative">
+        <app-edition-data-title title="Subjects"></app-edition-data-title>
+        <app-chapter-tree *ngIf="editionData()" [items]="editionData()!.chapters"></app-chapter-tree>
+    </div>
+</div>

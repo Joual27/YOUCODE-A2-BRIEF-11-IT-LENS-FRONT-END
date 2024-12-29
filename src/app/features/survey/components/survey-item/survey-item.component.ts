@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { Survey } from '../../models';
 import { RouterLink } from '@angular/router';
+import { Survey } from '../../../../shared/models';
 
 @Component({
   selector: 'app-survey-item',

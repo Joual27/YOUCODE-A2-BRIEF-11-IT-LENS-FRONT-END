@@ -1,8 +1,7 @@
 import { Component, inject, Inject, signal } from '@angular/core';
-import { Survey } from '../../models';
 import { SurveyItemComponent } from '../survey-item/survey-item.component';
 import { DataService } from '../../../../core/services/data.service';
-import { ApiResponse } from '../../../../shared/models/shared.models';
+import { ApiResponse, Survey } from '../../../../shared/models/shared.models';
 
 
 @Component({

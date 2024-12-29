@@ -2,8 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { environments } from '../../../environments/environment';
-import { ApiResponse } from '../../shared/models/shared.models';
-import { Edition } from '../../features/survey/models';
+import { ApiResponse, Edition } from '../../shared/models/shared.models';
 
 @Injectable({
   providedIn: 'root'
