@@ -1,6 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectorRef, Component, EventEmitter, Input, Output, WritableSignal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TreeItem, Question } from '../../../../shared/models';
+import { Question, TreeItem } from '../../../../shared/models';
 
 @Component({
   selector: 'app-chapter-tree',
@@ -12,6 +12,7 @@ import { TreeItem, Question } from '../../../../shared/models';
 export class ChapterTreeComponent {
   @Input() items: TreeItem[] | undefined = [];
   @Input() level: number = 0;
+  @Output() chapterChosenEvent = new EventEmitter<Question[]>();
 
   trackByFn(index: number, item: TreeItem) {
     return item.id;
@@ -21,11 +22,11 @@ export class ChapterTreeComponent {
     return level === 0 ? '' : 'ml-4';
   }
 
-  hasChildren(item: TreeItem): boolean {
-    return !!(item.subchapters?.length || item.questions?.length);
+  hasSubchapters(item: TreeItem): boolean {
+    return !!item.subchapters?.length;
   }
 
-  onQuestionClick(question: Question) {
-    console.log('Question clicked:', question);
+  onChapterClick(item: TreeItem) {
+    this.chapterChosenEvent.emit(item.questions);
   }
 }

@@ -6,7 +6,6 @@ export interface ApiResponse {
     };
 }
 
-
 export interface Owner{
   id : number;
   name : string
@@ -17,6 +16,7 @@ export interface Question {
   text: string;
   type: 'SINGLE_CHOICE' | 'MULTIPLE_CHOICE';
   answerCount: number;
+  answers : Answer[]
 }
 
 export interface TreeItem {
@@ -42,4 +42,10 @@ export interface Survey {
   description: string;
   owner: Owner;
   editions: Edition[];
+}
+
+export interface Answer{
+  id : number;
+  text : string ;
+  selectionCount : number 
 }

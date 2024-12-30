@@ -1,0 +1,16 @@
+@if (tableShown) {
+    @if (questionsToDisplay()) {
+        <div class="relative flex flex-col w-full max-h-[50vh] overflow-scroll text-gray-700 bg-[#F4FDFF] shadow-md rounded-lg bg-clip-border">
+            <table class="w-full text-left table-auto min-w-max text-[#A3A3CC]">
+                <app-question-table-head></app-question-table-head>
+                <tbody>
+                   @for (question of questionsToDisplay(); track question.id) {
+                      <app-question-table-row (questionTargeted)="handleQuestionTargeted($event)" [question]="question"></app-question-table-row>
+                   }
+                </tbody>
+            </table>
+        </div>
+    }@else {
+        <p class="text-[#292966] font-semibold underline text-[.95rem]">No available questions !</p>
+    } 
+}

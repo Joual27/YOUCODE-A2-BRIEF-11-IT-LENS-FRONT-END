@@ -1,6 +1,6 @@
 <ng-container *ngFor="let item of items; trackBy: trackByFn">
     <div [class]="getIndentClass(level)" class="mb-2">
-      <ng-container *ngIf="hasChildren(item); else noChildren">
+      <ng-container *ngIf="hasSubchapters(item); else lastChapter">
         <details>
           <summary class="list-none cursor-pointer hover:bg-[#5C5C99] text-[#292966] rounded-md transition-colors w-[25%] py-[.35rem] duration-200">
             <span [ngClass]="{'font-semibold': level === 0}" class="flex items-center px-[10px]">
@@ -8,26 +8,23 @@
             </span>
           </summary>
           <div class="mt-2">
-            <app-chapter-tree *ngIf="item.subchapters?.length" 
-                             [items]="item.subchapters" 
-                             [level]="level + 1">
-            </app-chapter-tree>
-            <ul *ngIf="item.questions?.length" class="mt-2">
-              <li *ngFor="let question of item.questions" 
-                  (click)="onQuestionClick(question)"
-                  class="cursor-pointer text-[#A3A3CC] font-medium hover:bg-[#292966] hover:text-white pl-[10px] text-[#A3A3CC] rounded-md transition-colors w-[50%] py-[.35rem] duration-200">
-                {{ question.text }}
-              </li>
-            </ul>
-          </div>
+            <app-chapter-tree 
+              [items]="item.subchapters" 
+              [level]="level + 1"
+              (chapterChosenEvent)="chapterChosenEvent.emit($event)">
+            </app-chapter-tree >
+          </div>    
         </details>
       </ng-container>
-      <ng-template #noChildren>
-        <button class="cursor-pointer hover:bg-[#5C5C99] text-[#292966] rounded-md transition-colors w-[25%] py-[.35rem] duration-200 px-[10px] text-left">
+      <ng-template #lastChapter>
+        <button 
+          (click)="onChapterClick(item)"
+          class="cursor-pointer hover:bg-[#5C5C99] text-[#292966] rounded-md transition-colors w-[25%] py-[.35rem] duration-200 px-[10px] text-left"
+        >
           {{ item.title }}
         </button>
       </ng-template>
     </div>
-  </ng-container>
+</ng-container>
   
   

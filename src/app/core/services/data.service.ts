@@ -8,7 +8,6 @@ import { ApiResponse, Edition } from '../../shared/models/shared.models';
   providedIn: 'root'
 })
 export class DataService {
-
   private apiUrl = environments.apiUrl;
   private http = inject(HttpClient);
   private surveyData : Observable<ApiResponse> | null = null;
