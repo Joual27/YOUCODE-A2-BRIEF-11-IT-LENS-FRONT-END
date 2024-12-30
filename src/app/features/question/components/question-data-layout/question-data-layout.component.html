@@ -1,3 +1,7 @@
 <div class="w-full h-full px-[5%] ">
-    <app-question-table (questionTargeted)="onQuestionTargeted($event)" [tableShown]="isShownQuestionsTable()" [questionsToDisplay]="questions"></app-question-table>
+    @if (activeTable() == "questions") {
+        <app-question-table (questionTargeted)="onQuestionTargeted($event)" [tableShown]="isShownQuestionsTable()" [questionsToDisplay]="questions"></app-question-table>
+    }@else {
+        <app-answer-table [answers]="activeQuestionAnswers"></app-answer-table>
+    }
 </div>

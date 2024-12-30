@@ -17,8 +17,10 @@ export class EditionDataLayoutComponent {
   @Input() editionData !: WritableSignal<Edition | undefined>;
   activeChapterQuestions = signal<Question[]>([]);
   questionsTableShown = signal<boolean>(false);
+  activeTable = signal<string>("questions");
   
   handleChosenChapterChange(questions : Question[]){
+    this.activeTable.set("questions")
     this.questionsTableShown.set(true);
     this.activeChapterQuestions.set(questions);
   }

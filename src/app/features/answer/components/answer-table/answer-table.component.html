@@ -1,11 +1,15 @@
-
-<div class="relative flex flex-col w-full max-h-[50vh] overflow-scroll text-gray-700 bg-[#F4FDFF] shadow-md rounded-lg bg-clip-border">
+@if (answers().length > 0) {
+  <div class="relative flex flex-col w-full max-h-[50vh] overflow-scroll text-gray-700 bg-[#F4FDFF] shadow-md rounded-lg bg-clip-border">
     <table class="w-full text-left table-auto min-w-max text-[#A3A3CC]">
+        <app-answer-table-head></app-answer-table-head>
         <tbody>
-           @for (answer of answers(); track answer.id) {
-             <app-answer-table-row ></app-answer-table-row>
-           }
+          @for (answer of answers(); track answer.id) {
+            <app-answer-table-row [answer]="answer"></app-answer-table-row>
+          }
         </tbody>
     </table>        
-</div>
+  </div>
+}@else {
+  <p class="text-[#292966] font-semibold underline text-[.95rem]">No Available Answers !</p>
+} 
 
