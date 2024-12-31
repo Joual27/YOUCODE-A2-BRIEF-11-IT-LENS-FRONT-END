@@ -19,7 +19,7 @@ export class AnswerTableCreationRowComponent implements OnInit{
   }
 
   handleSubmit() : void{
-    console.log()
+    console.log(this.answerForm.value)
   }
 
 }

@@ -12,6 +12,7 @@ import { AnswerTableComponent } from '../../../answer/components/answer-table/an
 export class QuestionDataLayoutComponent {
   @Input() questions !: WritableSignal<Question[]>;
   @Input() isShownQuestionsTable !: WritableSignal<boolean>;
+  @Input() isShownAnswersTable !: WritableSignal<boolean>;
   @Input() isVisibleCreationRow !: WritableSignal<boolean>;
   activeQuestionAnswers : WritableSignal<Answer[]>  = signal([]);
   activeQuestionId !: number;

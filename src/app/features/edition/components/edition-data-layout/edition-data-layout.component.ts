@@ -18,6 +18,7 @@ export class EditionDataLayoutComponent {
   activeChapterQuestions = signal<Question[]>([]);
   activeSubChapterId = signal<number>(0);
   questionsTableShown = signal<boolean>(false);
+  answersTableShown = signal<boolean>(false);
   isVisibleCreationRow = signal<boolean>(false);
   activeTable = signal<string>("questions");
   
@@ -35,7 +36,12 @@ export class EditionDataLayoutComponent {
   }
 
   handleShowingTable(){
+   if(this.activeTable() == "questions"){
     this.questionsTableShown.set(true);
-    this.isVisibleCreationRow.set(true);
+   }
+   else{
+    this.answersTableShown.set(true);
+   }
+   this.isVisibleCreationRow.set(true);
   }
 }
