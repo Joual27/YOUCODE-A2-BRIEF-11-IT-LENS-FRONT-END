@@ -11,8 +11,9 @@ export class QuestionTableRowComponent {
   @Input() question !: Question;
   @Output() questionTargeted = new EventEmitter<number>();
 
-
   handleQuestionTargeting(){
     this.questionTargeted.emit(this.question.id);
   }
+
+  
 }

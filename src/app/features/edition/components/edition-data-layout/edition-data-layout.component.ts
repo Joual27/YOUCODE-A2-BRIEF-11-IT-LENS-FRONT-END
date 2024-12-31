@@ -16,14 +16,26 @@ import { QuestionDataLayoutComponent } from "../../../question/components/questi
 export class EditionDataLayoutComponent {
   @Input() editionData !: WritableSignal<Edition | undefined>;
   activeChapterQuestions = signal<Question[]>([]);
-  activeSubChapterId !: WritableSignal<number>;
+  activeSubChapterId = signal<number>(0);
   questionsTableShown = signal<boolean>(false);
+  isVisibleCreationRow = signal<boolean>(false);
   activeTable = signal<string>("questions");
   
   handleChosenChapterChange(data : ChapterChosenEventData){
+    this.isVisibleCreationRow.set(false);
     this.activeTable.set("questions")
-    this.questionsTableShown.set(true);
     this.activeChapterQuestions.set(data.questions);
+    if(this.activeChapterQuestions().length > 0){
+      this.questionsTableShown.set(true);
+    }
+    else{
+      this.questionsTableShown.set(false);
+    }
     this.activeSubChapterId.set(data.subchapterId);
+  }
+
+  handleShowingTable(){
+    this.questionsTableShown.set(true);
+    this.isVisibleCreationRow.set(true);
   }
 }

@@ -1,5 +1,9 @@
-import { Component, Input, OnInit, WritableSignal } from '@angular/core';
+import { Component, EventEmitter, inject, Input, OnInit, Output, WritableSignal } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { QuestionCreationModel } from '../../models';
+import { QuestionService } from '../../services/question-service.service';
+import { Question } from '../../../../shared/models';
+
 
 @Component({
   selector: 'app-question-table-creation-row',
@@ -10,6 +14,8 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 export class QuestionTableCreationRowComponent implements OnInit{
   questionForm !: FormGroup;
   @Input() activeSubchapterId !: WritableSignal<number>;
+  questionService = inject(QuestionService);
+  @Output() questionCreatedEvent = new EventEmitter<Question>;
 
   constructor(private fb : FormBuilder){}
 
@@ -22,7 +28,7 @@ export class QuestionTableCreationRowComponent implements OnInit{
 
   onSubmit() : void{
     if(this.questionForm.valid){
-      console.log(this.questionForm.value);
+      this.handleQuestionCreation(this.getQuestionText(), this.getQuestionType());
     }
     else{
       Object.values(this.questionForm.controls).forEach(control => {
@@ -31,12 +37,31 @@ export class QuestionTableCreationRowComponent implements OnInit{
     }
   }
 
-  getQuestionText(){ 
-    return this.questionForm.get("text");
+  handleQuestionCreation(text : string , type : string) : void{
+    const questionToCreate : QuestionCreationModel = {
+      text : text,
+      type : type,
+      answerCount : 0,
+      subchapterId : this.activeSubchapterId()
+    }
+    this.questionService.createQuestion(questionToCreate).subscribe({
+      next : (res) => {
+        this.questionCreatedEvent.emit(res.data.question);
+        console.log(res);
+        this.questionForm.reset()
+      },
+      error : (err) => {
+        console.log("error creating ques : " + err); 
+      }
+    })    
   }
 
-  getQuestionType(){
-    return this.questionForm.get("type");
+  getQuestionText() : string{ 
+    return this.questionForm.get("text")?.value ?? "";
+  }
+
+  getQuestionType() : string{
+    return this.questionForm.get("type")?.value ?? "";
   }
 
 

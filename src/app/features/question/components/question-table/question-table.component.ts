@@ -15,9 +15,14 @@ export class QuestionTableComponent {
   @Input() tableShown !: boolean ;
   @Output() questionTargeted = new EventEmitter<number>;
   @Input() activeSubChapterId !: WritableSignal<number>;
+  @Input() isVisibleCreationRow !: WritableSignal<boolean>;
 
 
   handleQuestionTargeted(questionId : number){
     this.questionTargeted.emit(questionId);
+  }
+
+  handleQuestionCreatedEvent(question : Question){
+    this.questionsToDisplay().push(question);
   }
 }
