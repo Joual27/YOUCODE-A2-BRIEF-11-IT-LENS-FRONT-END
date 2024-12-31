@@ -15,6 +15,7 @@ export class QuestionDataLayoutComponent {
   activeQuestionAnswers : WritableSignal<Answer[]>  = signal([]);
   activeQuestionId !: number;
   @Input() activeTable : WritableSignal<string> = signal("questions");
+  @Input() activeSubChapterId !: WritableSignal<number>;
 
   onQuestionTargeted(questionId: number): void {
     this.activeTable.set("answers");

@@ -2,7 +2,7 @@ import { Component, Input, Signal, signal, WritableSignal } from '@angular/core'
 
 import { EditionDataHeaderComponent } from "../edition-data-header/edition-data-header.component";
 import { EditionDataTitleComponent } from "../edition-data-title/edition-data-title.component";
-import { Edition, Question } from '../../../../shared/models';
+import { ChapterChosenEventData, Edition, Question } from '../../../../shared/models';
 import { ChapterTreeComponent } from "../../../chapter/components/chapter-tree/chapter-tree.component";
 import { CommonModule } from '@angular/common';
 import { QuestionDataLayoutComponent } from "../../../question/components/question-data-layout/question-data-layout.component";
@@ -16,12 +16,14 @@ import { QuestionDataLayoutComponent } from "../../../question/components/questi
 export class EditionDataLayoutComponent {
   @Input() editionData !: WritableSignal<Edition | undefined>;
   activeChapterQuestions = signal<Question[]>([]);
+  activeSubChapterId !: WritableSignal<number>;
   questionsTableShown = signal<boolean>(false);
   activeTable = signal<string>("questions");
   
-  handleChosenChapterChange(questions : Question[]){
+  handleChosenChapterChange(data : ChapterChosenEventData){
     this.activeTable.set("questions")
     this.questionsTableShown.set(true);
-    this.activeChapterQuestions.set(questions);
+    this.activeChapterQuestions.set(data.questions);
+    this.activeSubChapterId.set(data.subchapterId);
   }
 }

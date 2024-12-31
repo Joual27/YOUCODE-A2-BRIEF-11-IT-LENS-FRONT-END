@@ -49,3 +49,8 @@ export interface Answer{
   text : string ;
   selectionCount : number 
 }
+
+export interface ChapterChosenEventData{
+  questions : Question[],
+  subchapterId : number 
+}

@@ -1,12 +1,13 @@
 @if (tableShown) {
     @if (questionsToDisplay()) {
-        <div class="relative flex flex-col w-full max-h-[50vh] overflow-scroll text-gray-700 bg-[#F4FDFF] shadow-md rounded-lg bg-clip-border">
+        <div class="relative flex flex-col w-full max-h-[45vh] overflow-scroll text-gray-700 bg-[#F4FDFF] shadow-md rounded-lg bg-clip-border">
             <table class="w-full text-left table-auto min-w-max text-[#A3A3CC]">
                 <app-question-table-head></app-question-table-head>
                 <tbody>
                    @for (question of questionsToDisplay(); track question.id) {
                       <app-question-table-row (questionTargeted)="handleQuestionTargeted($event)" [question]="question"></app-question-table-row>
                    }
+                   <app-question-table-creation-row [activeSubchapterId]="activeSubChapterId"></app-question-table-creation-row>
                 </tbody>
             </table>
         </div>
