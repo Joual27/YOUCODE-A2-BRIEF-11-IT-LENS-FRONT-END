@@ -32,6 +32,7 @@ export class EditionDataLayoutComponent {
     else{
       this.questionsTableShown.set(false);
     }
+    this.answersTableShown.set(false);
     this.activeSubChapterId.set(data.subchapterId);
   }
 

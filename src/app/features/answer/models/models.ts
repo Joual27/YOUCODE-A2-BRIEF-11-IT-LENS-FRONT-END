@@ -12,3 +12,10 @@ export interface AnswerApiResponse{
         answer : Answer
     }
 }
+
+export interface AnswerDeleteApiResponse{
+    status : number , 
+    data : {
+        answerId : number
+    }
+}

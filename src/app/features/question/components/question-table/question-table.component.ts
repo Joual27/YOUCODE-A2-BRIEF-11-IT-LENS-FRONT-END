@@ -24,5 +24,14 @@ export class QuestionTableComponent {
 
   handleQuestionCreatedEvent(question : Question){
     this.questionsToDisplay().push(question);
+    this.isVisibleCreationRow.set(false);
+  }
+
+  handleQuestionDeleteEvent(id : number) : void{
+    const updatedQuestions = this.questionsToDisplay().filter(ques => ques.id != id);
+    this.questionsToDisplay.set(updatedQuestions);
+    if(this.questionsToDisplay().length == 0){
+      this.tableShown = false;
+    }
   }
 }

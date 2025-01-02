@@ -15,13 +15,13 @@ export class QuestionDataLayoutComponent {
   @Input() isShownAnswersTable !: WritableSignal<boolean>;
   @Input() isVisibleCreationRow !: WritableSignal<boolean>;
   activeQuestionAnswers : WritableSignal<Answer[]>  = signal([]);
-  activeQuestionId !: number;
+  activeQuestionId : WritableSignal<number> = signal(0);
   @Input() activeTable : WritableSignal<string> = signal("questions");
   @Input() activeSubChapterId !: WritableSignal<number>;
 
   onQuestionTargeted(questionId: number): void {
     this.activeTable.set("answers");
-    this.activeQuestionId = questionId;
+    this.activeQuestionId.set(questionId);
     this.getQuestionAnswers(questionId);
   }
 
@@ -31,5 +31,4 @@ export class QuestionDataLayoutComponent {
       this.activeQuestionAnswers.set(activeQuestion.answers);
     }
   }
-
 }

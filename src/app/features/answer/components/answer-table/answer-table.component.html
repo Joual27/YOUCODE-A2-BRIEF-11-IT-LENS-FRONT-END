@@ -4,10 +4,10 @@
         <app-answer-table-head></app-answer-table-head>
         <tbody>
           @for (answer of answers(); track answer.id) {
-            <app-answer-table-row [answer]="answer"></app-answer-table-row>
+            <app-answer-table-row (answerDeletedEvent)="handleAnswerDeleteEvent($event)" [answer]="answer"></app-answer-table-row>
           }
           @if (isVisibleAnswerCreationRow()) {
-            <app-answer-table-creation-row></app-answer-table-creation-row>
+            <app-answer-table-creation-row (answerCreated)="handleAnswerCreationEvent($event)" [activeQuestionId]="activeQuestionId"></app-answer-table-creation-row>
           }
         </tbody>
     </table>        

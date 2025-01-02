@@ -2,6 +2,6 @@
     @if (activeTable() == "questions") {
         <app-question-table [isVisibleCreationRow]="isVisibleCreationRow" [activeSubChapterId]="activeSubChapterId" (questionTargeted)="onQuestionTargeted($event)" [tableShown]="isShownQuestionsTable()" [questionsToDisplay]="questions"></app-question-table>
     }@else {
-        <app-answer-table [isShownAnswersTable]="isShownAnswersTable" [isVisibleAnswerCreationRow]="isVisibleCreationRow" [answers]="activeQuestionAnswers"></app-answer-table>
+        <app-answer-table [activeQuestionId]="activeQuestionId" [isShownAnswersTable]="isShownAnswersTable" [isVisibleAnswerCreationRow]="isVisibleCreationRow" [answers]="activeQuestionAnswers"></app-answer-table>
     }
 </div>

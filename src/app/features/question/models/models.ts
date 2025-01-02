@@ -14,3 +14,10 @@ export interface QuestionApiResponse{
       question : Question
     };
 }
+
+export interface DeleteQuestionApiResponse{
+    status: number;
+    data: {
+      questionId : number
+    };
+}

@@ -5,7 +5,7 @@
                 <app-question-table-head></app-question-table-head>
                 <tbody>
                    @for (question of questionsToDisplay(); track question.id) {
-                      <app-question-table-row (questionTargeted)="handleQuestionTargeted($event)" [question]="question"></app-question-table-row>
+                      <app-question-table-row (questionDeletedEvent)="handleQuestionDeleteEvent($event)" (questionTargeted)="handleQuestionTargeted($event)" [question]="question"></app-question-table-row>
                    }
                    @if (isVisibleCreationRow()) {
                     <app-question-table-creation-row (questionCreatedEvent)="handleQuestionCreatedEvent($event)" [activeSubchapterId]="activeSubChapterId"></app-question-table-creation-row>
