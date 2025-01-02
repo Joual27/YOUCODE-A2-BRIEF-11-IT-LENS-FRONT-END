@@ -1,7 +1,7 @@
 <div class="w-[70%] mx-auto pb-[4rem] pt-[100px] relative">
     <app-edition-data-header [editionData]="editionData"></app-edition-data-header>
     <div class="w-full flex gap-[2%]">
-        <div class="flex flex-col gap-[4rem] px-[2rem] w-[40%] bg-[#CCCCFF] min-h-[60vh] mt-[4rem] rounded-md relative">
+        <div class="flex flex-col gap-[4rem] px-[2rem] w-[40%] bg-[#96bf91] bg-opacity-20 min-h-[60vh] mt-[4rem] rounded-md relative">
             <app-edition-data-title title="Subjects"></app-edition-data-title>
             <app-chapter-tree 
                 (chapterChosenEvent)="handleChosenChapterChange($event)" 
@@ -9,12 +9,10 @@
                 [items]="editionData()!.chapters">
         </app-chapter-tree>
         </div> 
-        <div class="flex flex-col gap-[2rem] px-[2rem] w-[60%] bg-[#CCCCFF] min-h-[60vh] mt-[4rem] rounded-md relative">
+        <div class="flex flex-col gap-[2rem] px-[2rem] w-[60%] bg-[#96bf91] bg-opacity-20 min-h-[60vh] mt-[4rem] rounded-md relative">
             <app-edition-data-title title="Questions"></app-edition-data-title>
             <div class="w-full flex justify-end mt-[2rem] pr-[5%]">
-                <button (click)="handleShowingTable()" class="flex items-center justify-center px-[.5rem] py-[.25rem] bg-[#5C5C99] rounded-md hover:bg-opacity-90">
-                    <img src="assets/images/plus.png" class="w-[24px] h-[24px]" alt="">
-                </button>
+                <img (click)="handleShowingTable()" src="assets/images/green_plus.png" class="w-[35px] h-[35px] cursor-pointer" alt="">
             </div>
             <app-question-data-layout [isShownAnswersTable]="answersTableShown" [isVisibleCreationRow]="isVisibleCreationRow" [activeSubChapterId]="activeSubChapterId" [activeTable]="activeTable" [questions]="activeChapterQuestions" [isShownQuestionsTable]="questionsTableShown"></app-question-data-layout>
         </div> 

@@ -1,5 +1,5 @@
-<div class="min-w-[300px] rounded-xl bg-[#CCCCFF] py-[2rem] relative">
-    <div class="absolute h-[30px] flex items-center justify-center bg-[#5C5C99] text-[#A3A3CC] top-0 left-0 w-full rounded-t-xl font-medium text-[.9rem]">
+<div class="min-w-[300px] rounded-xl bg-[#96bf91] bg-opacity-20 py-[2rem] relative">
+    <div class="absolute h-[30px] flex items-center justify-center bg-[#218e60] text-white top-0 left-0 w-full rounded-t-xl font-medium text-[.9rem]">
         <p>Survey id : {{survey.id}}</p>
     </div>
     <div class="flex flex-col w-full px-[10%] gap-[1rem] pt-[1rem]">
@@ -16,7 +16,7 @@
         <div class="flex gap-[10px] font-medium text-[.95rem]">
             @for (edition of survey.editions; track edition.creationDate) {
                 <a [routerLink]="[edition.id]">
-                    <div class="bg-[#5C5C99] rounded-xl text-white font-medium text-[.85rem] flex items-center justify-center px-[.75rem] py-[.35rem] cursor-pointer hover:bg-opacity-80">
+                    <div class="bg-[#218e60] rounded-xl text-white font-medium text-[.85rem] flex items-center justify-center px-[.75rem] py-[.35rem] cursor-pointer hover:bg-opacity-80">
                         <p>{{edition.startDate.substring(0, 4)}}</p>
                     </div>
                 </a>

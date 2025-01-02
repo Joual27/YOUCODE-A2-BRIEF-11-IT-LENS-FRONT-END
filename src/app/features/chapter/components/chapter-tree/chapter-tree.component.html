@@ -2,14 +2,14 @@
     <div [class]="getIndentClass(level)" class="mb-2">
       <ng-container *ngIf="hasSubchapters(item); else lastChapter">
         <details>
-          <summary class="list-none cursor-pointer hover:bg-[#5C5C99] text-[#292966] rounded-md transition-colors w-[25%] py-[.35rem] duration-200">
+          <summary class="list-none cursor-pointer hover:bg-[#218e60] hover:bg-opacity-80 hover:text-white text-[#070807] rounded-md transition-colors w-[25%] py-[.35rem] duration-200">
             <span [ngClass]="{'font-semibold': level === 0}" class="flex items-center px-[10px]">
               {{ item.title }}
             </span>
           </summary>
           <div class="mt-2">
             <app-chapter-tree 
-              [items]="item.subchapters" 
+              [items]="item.subchapters"
               [level]="level + 1"
               (chapterChosenEvent)="chapterChosenEvent.emit($event)">
             </app-chapter-tree >
@@ -19,7 +19,7 @@
       <ng-template #lastChapter>
         <button 
           (click)="onChapterClick(item)"
-          class="cursor-pointer hover:bg-[#5C5C99] text-[#292966] rounded-md transition-colors w-[25%] py-[.35rem] duration-200 px-[10px] text-left"
+          class="cursor-pointer hover:bg-[#218e60] hover:bg-opacity-80 hover:text-white text-[#3f3f3f] rounded-md transition-colors w-[25%] py-[.35rem] duration-200 px-[10px] text-left"
         >
           {{ item.title }}
         </button>
