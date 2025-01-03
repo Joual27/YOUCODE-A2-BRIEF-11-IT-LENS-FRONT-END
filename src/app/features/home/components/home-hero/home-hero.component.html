@@ -1,15 +1,26 @@
 <div class="flex flex-col gap-[2rem] weird-font items-center w-[40%]">
     <p class="text-7xl text-[#FAF9F6] font-extrabold">IT Lens</p>
-    <p class="text-white text-[1.1rem] font-medium max-w-[575px] text-center">" Your voice matters! Take part in surveys designed around the topics you care about most. Share your perspectives, contribute to meaningful discussions, and help shape decisions with your valuable insights. Join now and make your opinions count today! "</p>
+    <p class="text-white text-[1.1rem] font-semi max-w-[575px] text-center">" Your voice matters! Take part in surveys designed around the topics you care about most. Share your perspectives, contribute to meaningful discussions, and help shape decisions with your valuable insights. Join now and make your opinions count today! "</p>
     <div class="w-full flex gap-[15px] justify-center font-medium text-[.9rem]">
-        <select class="p-[.5rem] bg-[#96bf91] bg-opacity-40 rounded-md text-white font-medium">
+        <select (change)="handleSurveyChange($event)" class="p-[.75rem] bg-[#96bf91] bg-opacity-40 rounded-md text-white font-medium">
             <option value="">Please choose the survey</option>
-            <option value="">Survey number 1 : kidoedk </option>
+            @for (survey of surveys(); track survey.id) {
+                <option [value]="survey.id">{{survey.title}}</option>
+            }
         </select>
-        <select class="p-[.5rem] bg-[#96bf91] bg-opacity-40 rounded-md text-white font-medium">
-            <option value="">Please choose the edition</option>
-            <option value="">2022</option>
-            <option value="">2023</option>
+        @if (editionChoiceIsShown) {
+            <select (change)="handleEditionChange($event)" class="p-[.75rem] bg-[#96bf91] bg-opacity-40 rounded-md text-white font-medium">
+                <option value="">Please choose the edition</option>
+                @for (edition of activeSurveyEditions(); track edition.id) {
+                    <option [value]="edition.id">{{edition.startDate.substring(0 , 4)}}</option>
+                }
         </select>
+        }
     </div>
+    @if (areActiveButtons) {
+        <div class="flex gap-[10px]">
+            <button class="px-[4.5rem] py-[.5rem] rounded-md bg-[#3d898d] bg-opacity-40 hover:bg-opacity-50 text-white font-medium text-[.9rem]">Participate</button>
+            <button class="px-[4.5rem] py-[.5rem] rounded-md bg-[#44786a] bg-opacity-40 hover:bg-opacity-50 text-white font-medium text-[.9rem]">Results</button>
+        </div>
+    }
 </div>

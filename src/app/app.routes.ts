@@ -11,5 +11,11 @@ export const routes: Routes = [
         loadChildren : () => 
             import("./features/survey/survey.routes")
                 .then(m => m.SURVEY_ROUTES)
+    },
+    {
+        path : "participate",
+        loadChildren : () => 
+            import("./features/participation/participation.routes")
+               .then(m => m.PARTICIPATION_ROUTES)
     }
 ];
