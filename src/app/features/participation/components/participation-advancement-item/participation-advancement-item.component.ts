@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import {Component, Input, signal} from '@angular/core';
 
 @Component({
   selector: 'app-participation-advancement-item',
@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core';
   styleUrl: './participation-advancement-item.component.css'
 })
 export class ParticipationAdvancementItemComponent {
-
   @Input() number !: string;
-  @Input() title !: string
+  @Input() title !: string;
+  @Input() isCurrentPhase :boolean = false;
 }

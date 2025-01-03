@@ -23,8 +23,8 @@ export interface TreeItem {
   id: number;
   title: string;
   subchapters?: TreeItem[];
-  questions?: Question[];
-}
+  questions : Question[];
+} 
 
 export type Chapter = TreeItem;
 export type Subchapter = TreeItem;

@@ -1,5 +1,10 @@
-<div class="flex justify-center gap-[2.5rem]">
-    <app-participation-advancement-item title="Laravel" number="1"></app-participation-advancement-item>
-    <app-participation-advancement-item title="React" number="2"></app-participation-advancement-item>
-    <app-participation-advancement-item title="Nest" number="3"></app-participation-advancement-item>
+<div class="flex flex-wrap justify-center gap-[2.5rem] w-full">
+  <div *ngFor="let subchapter of subchapters() ; let i = index" class="flex">
+    <app-participation-advancement-item
+      [title]="subchapter.title"
+      [number]="(i + 1).toString()"
+      [isCurrentPhase]="activeSubchapterIndex() == i"
+    >
+    </app-participation-advancement-item>
+  </div>
 </div>
