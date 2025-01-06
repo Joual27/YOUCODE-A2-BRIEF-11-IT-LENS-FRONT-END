@@ -1,12 +1,19 @@
 <div class="flex flex-col gap-[3rem] w-[50%] text-[#000401]">
-    <div class="flex justify-start items-center">
-        <p class="text-2xl font-medium ">1. What Is Angular ? </p>
-    </div>
-    <div class="flex flex-col gap-[2rem]">
-        <app-participation-answer-template></app-participation-answer-template>
-        <app-participation-answer-template></app-participation-answer-template>
-        <app-participation-answer-template></app-participation-answer-template>
-        <app-participation-answer-template></app-participation-answer-template>
-    </div>
-    
+  <div class="flex justify-start items-center">
+    <p class="text-2xl font-medium">{{questionNumber}}. {{question.text}}</p>
+  </div>
+  <div class="flex flex-col gap-[2rem]">
+    <app-participation-answer-template
+      *ngFor="let answer of question.answers"
+      [answer]="answer"
+      [isSelected]="selectedAnswerId === answer.id"
+      (onSelect)="handleAnswerSelect($event)">
+    </app-participation-answer-template>
+  </div>
+  <button
+    [disabled]="!selectedAnswerId"
+    (click)="handleNext()"
+    class="self-end px-6 py-2 bg-[#00A36C] text-white rounded-md disabled:opacity-50">
+    Next
+  </button>
 </div>

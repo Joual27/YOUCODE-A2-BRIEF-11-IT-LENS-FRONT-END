@@ -1,4 +1,13 @@
-<div class="flex gap-[10px] px-[10px] py-[.75rem] rounded-md shadow-[0px_5px_10px_0px_rgba(0,_0,_0,_0.1)]">
-    <input type="radio" name="answers" class="focus:ring-[#218e60]">
-    <label class="text-[.9rem] font-medium text-gray-600">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore, repudiandae.</label>
+<div
+  class="flex gap-[10px] px-[10px] py-[.75rem] rounded-md shadow-[0px_5px_10px_0px_rgba(0,_0,_0,_0.1)] items-center"
+>
+  <input
+    type="radio"
+    name="answers"
+    [value]="answer"
+
+  />
+  <label class="text-[.9rem] font-medium text-gray-600">
+    {{answer.text}}
+  </label>
 </div>

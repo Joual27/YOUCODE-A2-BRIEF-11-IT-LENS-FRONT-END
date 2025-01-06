@@ -1,6 +1,18 @@
-<div class="flex items-center gap-[15px] text-gray-400" [class.active]="isCurrentPhase">
-    <div class="shadow-[0_5px_5px_rgba(33,142,96,0.5)] rounded-full bg-white flex items-center justify-center w-[50px] h-[50px] font-medium ">
-        <p>{{number}}</p>
-    </div>
-    <p class="font-medium text-xl">{{title}}</p>
+<div class="flex flex-col items-center gap-2">
+  <p class="font-semibold font-sans text-[.85rem]" [ngClass]="getTitleClass()">{{ title }}</p>
+  <div class="flex h-12 w-12 items-center justify-center rounded-full text-lg font-medium"
+       [ngClass]="getCircleClass()">
+    <ng-container *ngIf="isCompleted; else numberTemplate">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+    </ng-container>
+    <ng-template #numberTemplate>
+      {{ number }}
+    </ng-template>
+  </div>
+  <div class="flex flex-col gap-1.5 items-center">
+    <div class="h-2 w-20 rounded" [ngClass]="getBarClass()"></div>
+    <div class="h-2 w-[40%] rounded" [ngClass]="getBarClass(true)"></div>
+  </div>
 </div>

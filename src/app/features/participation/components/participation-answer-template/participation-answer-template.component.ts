@@ -1,11 +1,19 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {Answer} from '../../../../shared/models';
 
 @Component({
   selector: 'app-participation-answer-template',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './participation-answer-template.component.html',
   styleUrl: './participation-answer-template.component.css'
 })
 export class ParticipationAnswerTemplateComponent {
+  @Input() answer!: Answer;
+  @Input() isSelected: boolean = false;
+  @Output() onSelect = new EventEmitter<number>();
 
+  selectAnswer() {
+    this.onSelect.emit(this.answer.id);
+  }
 }
