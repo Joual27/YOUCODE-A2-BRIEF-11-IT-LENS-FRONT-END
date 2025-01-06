@@ -1,4 +1,4 @@
-import { Component, Input, signal } from '@angular/core';
+import {Component, effect, Input, OnInit, signal} from '@angular/core';
 import {Question, Subchapter} from '../../../../shared/models';
 import { ParticipationAdvancementComponent } from "../participation-advancement/participation-advancement.component";
 import { ParticipationQuestionTemplateComponent } from "../participation-question-template/participation-question-template.component";
@@ -10,7 +10,7 @@ import {CommonModule} from '@angular/common';
   templateUrl: './participation-layout.component.html',
   styleUrl: './participation-layout.component.css'
 })
-export class ParticipationLayoutComponent {
+export class ParticipationLayoutComponent implements OnInit{
   @Input() subchapters = signal<Subchapter[]>([]);
   activeSubchapterIndex = signal<number>(0);
   activeQuestionIndex = signal<number>(0);
@@ -18,6 +18,7 @@ export class ParticipationLayoutComponent {
 
   ngOnInit() {
     this.getCurrentQuestionData();
+    console.log(this.currentQuestion())
   }
 
   private getCurrentQuestionData() {
