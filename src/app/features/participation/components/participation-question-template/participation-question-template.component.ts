@@ -14,7 +14,6 @@ export class ParticipationQuestionTemplateComponent {
   @Input() questionNumber!: number;
   @Output() onAnswerSelected = new EventEmitter<number>();
   @Output() onNext = new EventEmitter<void>();
-
   selectedAnswerId: number | null = null;
 
   handleAnswerSelect(answerId: number) {

@@ -14,7 +14,7 @@ export interface Owner{
 export interface Question {
   id: number;
   text: string;
-  type: 'SINGLE_CHOICE' | 'MULTIPLE_CHOICE';
+  type: 'SINGLE_CHOICE' | 'MULTI_CHOICE';
   answerCount: number;
   answers : Answer[]
 }
@@ -24,7 +24,7 @@ export interface TreeItem {
   title: string;
   subchapters?: TreeItem[];
   questions : Question[];
-} 
+}
 
 export type Chapter = TreeItem;
 export type Subchapter = TreeItem;
@@ -47,10 +47,10 @@ export interface Survey {
 export interface Answer{
   id : number;
   text : string ;
-  selectionCount : number 
+  selectionCount : number
 }
 
 export interface ChapterChosenEventData{
   questions : Question[],
-  subchapterId : number 
+  subchapterId : number
 }

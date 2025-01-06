@@ -1,11 +1,11 @@
 <div
   class="flex gap-[10px] px-[10px] py-[.75rem] rounded-md shadow-[0px_5px_10px_0px_rgba(0,_0,_0,_0.1)] items-center"
+  [ngClass]="{ 'chosen-ans': isSelected }"
 >
   <input
     type="radio"
-    name="answers"
-    [value]="answer"
-
+    [attr.name]="question.type === 'SINGLE_CHOICE' ? 'answers' : null"
+    (change)="selectAnswer()"
   />
   <label class="text-[.9rem] font-medium text-gray-600">
     {{answer.text}}
