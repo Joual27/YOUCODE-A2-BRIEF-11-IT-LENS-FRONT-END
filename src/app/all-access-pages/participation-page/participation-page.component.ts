@@ -22,7 +22,7 @@ export class ParticipationPageComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.loadData(); 
+    this.loadData();
   }
 
   loadData(){
@@ -43,7 +43,6 @@ export class ParticipationPageComponent implements OnInit{
 
   filterSubchaptersWithQuestions(chapters: Subchapter[]): Subchapter[] {
     let result: Subchapter[] = [];
-
     chapters.forEach(chapter => {
       if (chapter.subchapters && chapter.subchapters.length > 0) {
         result = result.concat(this.filterSubchaptersWithQuestions(chapter.subchapters));

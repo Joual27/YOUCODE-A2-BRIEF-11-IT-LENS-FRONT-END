@@ -6,10 +6,11 @@ import {CommonModule} from '@angular/common';
 import {ParticipationService} from '../../services/participation.service';
 import {AnswerToMultipleQuestions, AnswerToQuestion} from '../../models';
 import {Router} from '@angular/router';
+import {ParticipationThankYouComponent} from '../participation-thank-you/participation-thank-you.component';
 
 @Component({
   selector: 'app-participation-layout',
-  imports: [ParticipationAdvancementComponent, ParticipationQuestionTemplateComponent , CommonModule],
+  imports: [ParticipationAdvancementComponent, ParticipationQuestionTemplateComponent, CommonModule, ParticipationThankYouComponent],
   templateUrl: './participation-layout.component.html',
   styleUrl: './participation-layout.component.css'
 })
@@ -128,8 +129,9 @@ export class ParticipationLayoutComponent {
       this.isSurveyComplete.set(true);
 
       setTimeout(() => {
+        this.isSurveyComplete.set(false);
         this.router.navigate(['/']);
-      }, 6000);
+      }, 5000);
       return;
     }
 

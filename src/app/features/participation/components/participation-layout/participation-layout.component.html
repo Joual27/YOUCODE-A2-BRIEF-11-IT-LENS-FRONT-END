@@ -1,4 +1,6 @@
-
+@if (isSurveyComplete()) {
+  <app-participation-thank-you [surveyTitle]="surveyData()?.title"></app-participation-thank-you>
+} @else {
   <div class="w-[80%] mx-auto h-full py-[7.5%] weird-font flex flex-col gap-[4rem] items-center">
     <app-participation-advancement
       [activeSubchapterIndex]="activeSubchapterIndex"
@@ -13,4 +15,7 @@
       (onNext)="handleNext()">
     </app-participation-question-template>
   </div>
+}
+
+
 
