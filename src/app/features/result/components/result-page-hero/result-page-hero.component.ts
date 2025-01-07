@@ -1,5 +1,4 @@
-import {Component, signal} from '@angular/core';
-import {ActivatedRoute, RouterLinkActive} from '@angular/router';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-result-page-hero',
@@ -7,10 +6,7 @@ import {ActivatedRoute, RouterLinkActive} from '@angular/router';
   templateUrl: './result-page-hero.component.html',
   styleUrl: './result-page-hero.component.css'
 })
-export class ResultPageHeroComponent {
-  editionId = signal<number>(0);
+export class ResultPageHeroComponent{
 
-  constructor(route : ActivatedRoute) {
-    this.editionId.set(Number(route.snapshot.paramMap.get("id")));
-  }
+
 }

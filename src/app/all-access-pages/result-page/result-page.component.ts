@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
-import {ResultPageHeroComponent} from '../../features/result/components/result-page-hero/result-page-hero.component';
+import {
+  ResultPageLayoutComponent
+} from '../../features/result/components/result-page-layout/result-page-layout.component';
 
 @Component({
   selector: 'app-result-page',
   imports: [
-    ResultPageHeroComponent
+    ResultPageLayoutComponent
   ],
   templateUrl: './result-page.component.html',
   styleUrl: './result-page.component.css'
 })
 export class ResultPageComponent {
-
 }
