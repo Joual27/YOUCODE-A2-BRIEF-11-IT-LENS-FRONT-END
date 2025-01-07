@@ -16,7 +16,6 @@ export class ParticipationPageComponent implements OnInit{
   dataService = inject(DataService);
   subchaptersWithAnswers = signal<Subchapter[]>([]);
 
-
   constructor(private route : ActivatedRoute){
     this.editionId.set(Number(route.snapshot.paramMap.get('id')));
   }

@@ -1,10 +1,11 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { DataService } from '../../../../core/services/data.service';
 import { Edition, Survey } from '../../../../shared/models';
+import {RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-home-hero',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './home-hero.component.html',
   styleUrl: './home-hero.component.css'
 })
@@ -14,6 +15,7 @@ export class HomeHeroComponent implements OnInit{
   activeSurveyEditions = signal<Edition[]>([]);
   areActiveButtons : boolean = false;
   editionChoiceIsShown : boolean = false;
+  chosenEditionId = signal<number>(0);
 
   ngOnInit() : void {
     this.fetchSurveys();
@@ -40,20 +42,18 @@ export class HomeHeroComponent implements OnInit{
         this.editionChoiceIsShown = true;
       }
     }else{
-      this.editionChoiceIsShown = false;  
+      this.editionChoiceIsShown = false;
     }
   }
 
   handleEditionChange(event: Event){
     const target = event.target as HTMLSelectElement;
     if(target.value !== ""){
+      this.chosenEditionId.set(Number(target.value));
       this.areActiveButtons = true;
+
     }else{
       this.areActiveButtons = false;
     }
   }
-  
-  
-
-
 }

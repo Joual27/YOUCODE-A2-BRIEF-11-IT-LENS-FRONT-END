@@ -19,8 +19,8 @@
     </div>
     @if (areActiveButtons) {
         <div class="flex gap-[10px]">
-            <button class="px-[4.5rem] py-[.5rem] rounded-md bg-[#3d898d] bg-opacity-40 hover:bg-opacity-50 text-white font-medium text-[.9rem]">Participate</button>
-            <button class="px-[4.5rem] py-[.5rem] rounded-md bg-[#44786a] bg-opacity-40 hover:bg-opacity-50 text-white font-medium text-[.9rem]">Results</button>
+            <button class="px-[4.5rem] py-[.5rem] rounded-md bg-[#3d898d] bg-opacity-40 hover:bg-opacity-50 text-white font-medium text-[.9rem]" routerLink="/participate/edition/{{chosenEditionId()}}">Participate</button>
+            <button class="px-[4.5rem] py-[.5rem] rounded-md bg-[#44786a] bg-opacity-40 hover:bg-opacity-50 text-white font-medium text-[.9rem]" routerLink="/results/edition/{{chosenEditionId()}}">Results</button>
         </div>
     }
 </div>
