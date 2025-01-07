@@ -34,6 +34,12 @@ export interface Edition {
   creationDate: string;
   startDate: string;
   chapters: Chapter[];
+  survey : EmbeddedSurvey
+}
+
+export interface EmbeddedSurvey{
+  id : number,
+  title : string
 }
 
 export interface Survey {

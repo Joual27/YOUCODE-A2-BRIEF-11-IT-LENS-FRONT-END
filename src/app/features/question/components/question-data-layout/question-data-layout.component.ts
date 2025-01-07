@@ -7,7 +7,7 @@ import { AnswerTableComponent } from '../../../answer/components/answer-table/an
   selector: 'app-question-data-layout',
   imports: [QuestionTableComponent , AnswerTableComponent],
   templateUrl: './question-data-layout.component.html',
-  styleUrl: './question-data-layout.component.css'  
+  styleUrl: './question-data-layout.component.css'
 })
 export class QuestionDataLayoutComponent {
   @Input() questions !: WritableSignal<Question[]>;
@@ -18,7 +18,7 @@ export class QuestionDataLayoutComponent {
   activeQuestionId : WritableSignal<number> = signal(0);
   @Input() activeTable : WritableSignal<string> = signal("questions");
   @Input() activeSubChapterId !: WritableSignal<number>;
-
+  @Input() editionId = signal<number>(0);
   onQuestionTargeted(questionId: number): void {
     this.activeTable.set("answers");
     this.activeQuestionId.set(questionId);
