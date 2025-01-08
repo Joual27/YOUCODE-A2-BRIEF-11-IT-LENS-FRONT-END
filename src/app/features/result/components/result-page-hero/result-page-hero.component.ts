@@ -1,4 +1,5 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {Edition} from '../../../../shared/models';
 
 @Component({
   selector: 'app-result-page-hero',
@@ -7,6 +8,5 @@ import {Component} from '@angular/core';
   styleUrl: './result-page-hero.component.css'
 })
 export class ResultPageHeroComponent{
-
-
+  @Input() editionData : Edition | undefined;
 }

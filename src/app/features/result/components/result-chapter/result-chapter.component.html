@@ -1,0 +1,25 @@
+<div class="chapter-container">
+  @if (chapter) {
+    <div class="chapter-header">
+      <h3 class="text-lg font-semibold mb-2">{{ chapter.title }}</h3>
+    </div>
+
+    @if (chapter.questions?.length) {
+      <app-result-question-list
+        [questions]="chapter.questions"
+        class="ml-4"
+      />
+    }
+
+    @if (chapter.subchapters?.length) {
+      <div class="subchapters-container ml-6">
+        @for (subchapter of chapter.subchapters; track subchapter.id) {
+          <app-result-chapter
+            [chapter]="subchapter"
+            class="block mt-4"
+          />
+        }
+      </div>
+    }
+  }
+</div>
