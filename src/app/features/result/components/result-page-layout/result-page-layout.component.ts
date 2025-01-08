@@ -5,10 +5,11 @@ import {ParticipationService} from '../../../participation/services/participatio
 import {ResultPageHeroComponent} from '../result-page-hero/result-page-hero.component';
 import {ResultDataComponent} from '../result-data/result-data.component';
 import {ResultChronologyComponent} from '../result-chronology/result-chronology.component';
+import {ResultChapterComponent} from '../result-chapter/result-chapter.component';
 
 @Component({
   selector: 'app-result-page-layout',
-  imports: [ResultPageHeroComponent , ResultDataComponent , ResultChronologyComponent],
+  imports: [ResultPageHeroComponent, ResultDataComponent, ResultChronologyComponent, ResultChapterComponent],
   templateUrl: './result-page-layout.component.html',
   styleUrl: './result-page-layout.component.css'
 })

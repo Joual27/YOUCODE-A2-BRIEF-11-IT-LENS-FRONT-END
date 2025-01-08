@@ -1,8 +1,8 @@
-<div class="questions-container">
+<div class="w-full">
   @for (question of questions; track question.id) {
-<!--    <app-result-question-->
-<!--      [question]="question"-->
-<!--      class="block mb-4"-->
-<!--    />-->
+    <app-result-question
+      [question]="question"
+      class="block mb-4"
+    />
   }
 </div>

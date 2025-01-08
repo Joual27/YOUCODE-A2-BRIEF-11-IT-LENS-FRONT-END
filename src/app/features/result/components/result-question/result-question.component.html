@@ -1,0 +1,11 @@
+<div class=" p-4 my-[4rem] flex flex-col gap-[1rem] weird-font ">
+  <h4 class="font-semibold text-2xl mb-2 underline">{{ question.text }}</h4>
+  <p class="text-[.9rem] font-medium text-[#71797E]">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci debitis, ea esse est eveniet explicabo fugit, molestiae molestias neque, odit quo quod recusandae sint suscipit veniam vero voluptatum! Dolore, voluptates.</p>
+  <div class="bg-[#E5E4E2] bg-opacity-20 rounded-md p-4">
+    <div class="text-sm text-muted-foreground mb-2">
+      Total responses: {{ question.answerCount }}
+    </div>
+    <app-result-answer-list [answers]="question.answers" />
+  </div>
+</div>
+

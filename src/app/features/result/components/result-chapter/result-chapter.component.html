@@ -1,7 +1,7 @@
-<div class="chapter-container">
+<div class=" weird-font">
   @if (chapter) {
-    <div class="chapter-header">
-      <h3 class="text-lg font-semibold mb-2">{{ chapter.title }}</h3>
+    <div>
+      <h3 class="text-2xl font-semibold mb-4 underline text-[#A9A9A9]">{{ chapter.title }}</h3>
     </div>
 
     @if (chapter.questions?.length) {
@@ -12,7 +12,7 @@
     }
 
     @if (chapter.subchapters?.length) {
-      <div class="subchapters-container ml-6">
+      <div class="subchapters-container ml-1">
         @for (subchapter of chapter.subchapters; track subchapter.id) {
           <app-result-chapter
             [chapter]="subchapter"

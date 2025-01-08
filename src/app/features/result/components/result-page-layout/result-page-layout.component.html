@@ -1,5 +1,14 @@
 <app-result-page-hero [editionData]="editionData()"></app-result-page-hero>
-<div class="w-[80%] mx-auto flex gap-[2.5%]">
-  <app-result-data></app-result-data>
+<div class="w-[80%] mx-auto flex gap-[2.5%] py-[2rem]">
+  @if (editionData()) {
+    <div class="w-[77.5%] bg-red">
+      @for (chapter of editionData()?.chapters; track chapter.id) {
+        <app-result-chapter
+          [chapter]="chapter"
+          class="mb-8"
+        />
+      }
+    </div>
+  }
   <app-result-chronology></app-result-chronology>
 </div>

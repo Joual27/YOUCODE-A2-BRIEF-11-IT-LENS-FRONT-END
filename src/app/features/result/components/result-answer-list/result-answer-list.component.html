@@ -1,0 +1,10 @@
+<div class="w-full flex flex-col gap-2">
+  @for (answer of answers; track answer.id) {
+    <div class="answer-item flex items-center gap-2 bg-[#E5E4E2]/35 px-2">
+      <div class="flex-1">{{ answer.text }}</div>
+      <div class="answer-count bg-primary/10 px-2 py-1 rounded text-sm">
+        {{ answer.selectionCount }} responses
+      </div>
+    </div>
+  }
+</div>
