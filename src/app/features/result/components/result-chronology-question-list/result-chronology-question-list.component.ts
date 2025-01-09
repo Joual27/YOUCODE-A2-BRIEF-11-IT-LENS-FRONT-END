@@ -9,4 +9,11 @@ import { Question } from '../../../../shared/models';
 })
 export class ResultChronologyQuestionListComponent {
   @Input({ required: true }) questions!: Question[];
+
+  scrollToElement(id: number): void {
+    const element = document.getElementById(`question-${id}`);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
 }

@@ -11,4 +11,9 @@ import { ResultChronologyQuestionListComponent } from "../result-chronology-ques
 export class ResultChronologyItemComponent {
   @Input({ required: true }) item!: TreeItem;
   @Input() level: number = 0;
+
+  scrollToElement(id : number): void {
+    const element = document.getElementById(`item-${id}`);
+    element?.scrollIntoView({behavior : "smooth" , block : "center"})
+  }
 }

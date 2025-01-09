@@ -1,7 +1,8 @@
-<div class="w-[22.5%] border-primary border-l-2 min-h-[60vh] weird-font">
-    <div class="chronology-container p-4">
+<div class="weird-font fixed w-full pl-[62%]">
+    <div class="absolute inset-0 before:content-[''] z-[-1] before:absolute before:top-0 before:left-[62%] before:h-full before:border-l-2 before:border-primary"></div>
+    <div class="p-4">
         @if (editionData()) {
-          <div class="chapters-list">
+          <div class="">
             @for (chapter of editionData()?.chapters; track chapter.id) {
               <app-result-chronology-item
                 [item]="chapter"

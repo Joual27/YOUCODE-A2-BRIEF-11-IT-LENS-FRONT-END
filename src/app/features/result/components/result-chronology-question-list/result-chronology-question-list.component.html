@@ -1,7 +1,7 @@
-<div class="questions-list">
+<div class="flex flex-col gap-2 py-2">
     @for (question of questions; track question.id) {
-      <div class="question-item text-sm text-muted-foreground hover:text-foreground transition-colors">
+      <div (click)="scrollToElement(question.id)" class="text-gray-600 cursor-pointer hover:text-[#2dc653] text-[.8rem] hover:underline duration-600 ">
         {{ question.text }}
       </div>
     }
-  </div>
+  </div> 

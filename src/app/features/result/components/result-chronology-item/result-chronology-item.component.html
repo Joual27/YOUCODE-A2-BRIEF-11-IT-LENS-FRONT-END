@@ -1,12 +1,12 @@
-<div class="chronology-item">
-    <div 
-        [class]="'item-title ' + (level === 0 ? 'text-lg font-medium' : 'text-sm hover:text-primary')"
+<div >
+    <div (click)="scrollToElement(item.id)" 
+        [class]="'cursor-pointer hover:text-[#2dc653] hover:underline duration-600 ' + (level === 0 ? 'font-medium ' : 'text-[.8rem] hover:text-primary')"
       >
         {{ item.title }}
     </div>
 
     @if (item.subchapters?.length) {
-        <div class="ml-2">
+        <div class="ml-1 mt-3">
           @for (subchapter of item.subchapters; track subchapter.id) {
             <app-result-chronology-item
               [item]="subchapter"
@@ -19,7 +19,7 @@
     @if (item.questions?.length) {
         <app-result-chronology-question-list
           [questions]="item.questions"
-          class="ml-2"
+          class="ml-1"
         />
     }
 </div>
