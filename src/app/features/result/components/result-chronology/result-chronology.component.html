@@ -1,3 +1,14 @@
 <div class="w-[22.5%] bg-indigo-500 h-[60vh]">
-
+    <div class="chronology-container p-4">
+        @if (editionData()) {
+          <div class="chapters-list">
+            @for (chapter of editionData()?.chapters; track chapter.id) {
+              <app-result-chronology-item
+                [item]="chapter"
+                [level]="0"
+              />
+            }
+          </div>
+        }
+      </div>
 </div>

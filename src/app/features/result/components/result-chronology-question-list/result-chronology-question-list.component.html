@@ -1,0 +1,7 @@
+<div class="questions-list">
+    @for (question of questions; track question.id) {
+      <div class="question-item text-sm text-muted-foreground hover:text-foreground transition-colors">
+        {{ question.text }}
+      </div>
+    }
+  </div>

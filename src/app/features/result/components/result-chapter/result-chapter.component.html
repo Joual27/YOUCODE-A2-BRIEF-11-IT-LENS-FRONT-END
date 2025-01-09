@@ -1,7 +1,8 @@
-<div class=" weird-font">
+<div class=" weird-font mt-8 ">
   @if (chapter) {
-    <div>
-      <h3 class="text-2xl font-semibold mb-4 underline text-[#A9A9A9]">{{ chapter.title }}</h3>
+    <div class="flex flex-col gap-[1rem]">
+      <h3 class="text-2xl font-semibold mb-4 underline ">{{ chapter.title }}</h3>
+      <p class="text-[.9rem] font-medium text-[#71797E]">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci debitis, ea esse est eveniet explicabo fugit, molestiae molestias neque, odit quo quod recusandae sint suscipit veniam vero voluptatum! Dolore, voluptates.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci debitis, ea esse est eveniet explicabo fugit, molestiae molestias neque, odit quo quod recusandae sint suscipit veniam vero voluptatum! Dolore, voluptates.</p>
     </div>
 
     @if (chapter.questions?.length) {

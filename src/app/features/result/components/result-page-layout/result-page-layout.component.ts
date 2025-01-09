@@ -3,13 +3,12 @@ import {Edition} from '../../../../shared/models';
 import {ActivatedRoute} from '@angular/router';
 import {ParticipationService} from '../../../participation/services/participation.service';
 import {ResultPageHeroComponent} from '../result-page-hero/result-page-hero.component';
-import {ResultDataComponent} from '../result-data/result-data.component';
 import {ResultChronologyComponent} from '../result-chronology/result-chronology.component';
 import {ResultChapterComponent} from '../result-chapter/result-chapter.component';
 
 @Component({
   selector: 'app-result-page-layout',
-  imports: [ResultPageHeroComponent, ResultDataComponent, ResultChronologyComponent, ResultChapterComponent],
+  imports: [ResultPageHeroComponent, ResultChronologyComponent, ResultChapterComponent],
   templateUrl: './result-page-layout.component.html',
   styleUrl: './result-page-layout.component.css'
 })

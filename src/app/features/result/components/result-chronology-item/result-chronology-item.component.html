@@ -1,0 +1,25 @@
+<div class="chronology-item">
+    <div 
+        [class]="'item-title ' + (level === 0 ? 'text-lg font-medium' : 'text-sm hover:text-primary')"
+      >
+        {{ item.title }}
+    </div>
+
+    @if (item.subchapters?.length) {
+        <div class="ml-4">
+          @for (subchapter of item.subchapters; track subchapter.id) {
+            <app-result-chronology-item
+              [item]="subchapter"
+              [level]="level + 1"
+            />
+          }
+        </div>
+    }
+
+    @if (item.questions?.length) {
+        <app-result-chronology-question-list
+          [questions]="item.questions"
+          class="ml-4"
+        />
+    }
+</div>

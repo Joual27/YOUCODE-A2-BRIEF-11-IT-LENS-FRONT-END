@@ -2,10 +2,10 @@
   <h4 class="font-semibold text-2xl mb-2 underline">{{ question.text }}</h4>
   <p class="text-[.9rem] font-medium text-[#71797E]">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci debitis, ea esse est eveniet explicabo fugit, molestiae molestias neque, odit quo quod recusandae sint suscipit veniam vero voluptatum! Dolore, voluptates.</p>
   <div class="bg-[#E5E4E2] bg-opacity-20 rounded-md p-4">
-    <div class="text-sm text-muted-foreground mb-2">
-      Total responses: {{ question.answerCount }}
+    <app-result-answer-list [totalAnswers]="question.answerCount" [answers]="question.answers" />
+    <div class="w-full px-4 flex justify-end text-[.9rem] font-medium text-[#71797E] mt-4">
+      Total : {{ question.answerCount }}
     </div>
-    <app-result-answer-list [answers]="question.answers" />
   </div>
 </div>
 
