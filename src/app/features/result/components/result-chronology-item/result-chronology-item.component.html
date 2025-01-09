@@ -6,7 +6,7 @@
     </div>
 
     @if (item.subchapters?.length) {
-        <div class="ml-4">
+        <div class="ml-2">
           @for (subchapter of item.subchapters; track subchapter.id) {
             <app-result-chronology-item
               [item]="subchapter"
@@ -19,7 +19,7 @@
     @if (item.questions?.length) {
         <app-result-chronology-question-list
           [questions]="item.questions"
-          class="ml-4"
+          class="ml-2"
         />
     }
 </div>
